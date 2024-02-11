@@ -55,7 +55,7 @@ public class AuthController {
 			if (user != null) {
 				token = tokenProvider.createToken(username, user.getRoles());
 			} else {
-				throw new UsernameNotFoundException("Username " + username + " not found!");
+				throw new UsernameNotFoundException("Username " + username + "is not found!");
 			}
 			
 			Map<Object, Object> model = new HashMap<>();
