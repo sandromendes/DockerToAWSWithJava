@@ -3,20 +3,22 @@ jdk:
   - oraclejdk11
 before_install:
   - sudo apt-get update
+  - echo "Entering in app folder"
   - cd app/
-  - echo "Let's start Maven Package!"
+  - echo "Building spring boot application"
   - mvn clean package
   - cd ..
-  - echo "We are in the Docker folder!"
+  - echo "Turn back to main folder"
 script:
   - docker-compose build
 before_deploy:
+  echo "Autenticating..."
   echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 deploy:
   provider: script
   script:
-    docker tag docker-to-aws-with-java:latest leandrocgsi/docker-to-aws-with-java:latest;
-    docker push leandrocgsi/docker-to-aws-with-java;
+    docker tag docker-to-aws-with-java:latest sandromendes/docker-to-aws-with-java:latest;
+    docker push sandromendes/docker-to-aws-with-java;
   on:
     branch: master
 notifications:
