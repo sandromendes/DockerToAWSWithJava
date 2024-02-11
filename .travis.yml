@@ -20,6 +20,6 @@ deploy:
     docker tag docker-to-aws-with-java:latest sandromendes/docker-to-aws-with-java:latest;
     docker push sandromendes/docker-to-aws-with-java;
   on:
-    branch: master
+    branch: main
 notifications:
   email: false
