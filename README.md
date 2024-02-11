@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/sandromendes/DockerToAWSWithJava.svg?branch=main)](https://app.travis-ci.com/sandromendes/DockerToAWSWithJava)
+
 # Aplicação Java 11 com Spring Boot, MySQL, Docker e Travis CI
 
 Este é um exemplo de aplicação Java 11 com Spring Boot que utiliza um banco de dados MySQL, Docker para contêinerização da aplicação e do banco de dados, e integração contínua com Travis CI.
