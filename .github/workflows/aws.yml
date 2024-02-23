@@ -74,7 +74,8 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       run: |
-        $env:DOCKER_HOST="tcp://0.0.0.0:2375"
+        $env:DOCKER_HOST="npipe:////./pipe/docker_engine"
+        docker run --rm -it -v c/:/windows_mount alpine ls /windows_mount
         docker ps -a
         aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin secrets.AWS_ACCOUNT_ID.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
 
