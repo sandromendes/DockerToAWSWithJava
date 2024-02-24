@@ -77,7 +77,7 @@ jobs:
     
     - name: Maven build and test
       working-directory: ./app
-      run: ./mvnw clean package
+      run: mvnw clean package
 
     - name: Docker build, tag, and push image to Amazon ECR
       id: build-image
