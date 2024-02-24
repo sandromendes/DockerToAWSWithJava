@@ -75,7 +75,9 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v2
     
-
+    - name: Maven build and test
+      working-directory: ./app
+      run: ./mvnw clean package
 
     - name: Docker build, tag, and push image to Amazon ECR
       id: build-image
@@ -88,9 +90,6 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        cd app/
-        mvn clean package
-        cd ..
         docker-compose up -d --build
         docker tag docker-to-aws-with-java:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg ACCESS_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg SECRET_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
