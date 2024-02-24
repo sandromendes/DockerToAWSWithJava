@@ -80,16 +80,15 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
-        IMAGE_TAG: ${{ github.sha }}        
+        IMAGE_TAG: ${{ github.sha }}  
+      working-directory: ./app
       run: |
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker system prune -a
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --build-arg ACCESS_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg SECRET_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
-        cd ..
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
