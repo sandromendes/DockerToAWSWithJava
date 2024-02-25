@@ -31,14 +31,14 @@ on:
     types: [published]
 
 env:
-  AWS_REGION: us-east-2                                     # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: trainningrepo                             # set this to your Amazon ECR repository name
-  ECS_SERVICE: trainning-service-fargate                    # set this to your Amazon ECS service name
-  ECS_CLUSTER: trainning-cluster-fargate                    # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: trainning-task-definition-fargate    # set this to the path to your Amazon ECS task definition
-                                                            # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: trainning-container-fargate               # set this to the name of the container in the
-                                                            # containerDefinitions section of your task definition
+  AWS_REGION: us-east-2                                    # set this to your preferred AWS region, e.g. us-west-1
+  ECR_REPOSITORY: trainingrepo                             # set this to your Amazon ECR repository name
+  ECS_SERVICE: training-service-fargate                    # set this to your Amazon ECS service name
+  ECS_CLUSTER: training-cluster-fargate                    # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION: training-task-definition            # set this to the path to your Amazon ECS task definition
+                                                           # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME: training-container-fargate               # set this to the name of the container in the
+                                                           # containerDefinitions section of your task definition
 
 permissions:
   contents: read
