@@ -120,7 +120,7 @@
 				<groupId>org.flywaydb</groupId>
 				<artifactId>flyway-maven-plugin</artifactId>
 				<configuration>
-					<url>jdbc:mysql://dockertoawswithjava.crsww62cqoq4.us-east-2.rds.amazonaws.com:3306/docker_to_aws_with_java?useTimezone=true&amp;serverTimezone=UTC&amp;useSSL=false</url>
+					<url>jdbc:mysql://trainning-rds-mysql-instance.cpy4w2qo6qlh.us-east-1.rds.amazonaws.com:3306/docker_to_aws_with_java?useTimezone=true&amp;serverTimezone=UTC&amp;useSSL=false</url>
 					<user>docker</user>
 					<password>awsdocker2024</password>
 				</configuration>
