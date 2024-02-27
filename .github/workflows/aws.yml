@@ -35,7 +35,7 @@ env:
   ECR_REPOSITORY: training-repo                             # set this to your Amazon ECR repository name
   ECS_SERVICE: training-service-fargate                    # set this to your Amazon ECS service name
   ECS_CLUSTER: training-cluster-fargate                    # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: training-task-definition            # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: training-task-definition.json            # set this to the path to your Amazon ECS task definition
                                                            # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: training-container-fargate               # set this to the name of the container in the
                                                            # containerDefinitions section of your task definition
@@ -96,7 +96,7 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.ECS_TASK_DEFINITION }}.json
+        task-definition: ${{ env.ECS_TASK_DEFINITION }}
         container-name: ${{ env.CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
