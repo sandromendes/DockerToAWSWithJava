@@ -56,9 +56,7 @@ public class PersonController {
     	
     	Pageable pageableRequest = PageRequest.of(page, limit, Sort.by(sortDirection, "firstName"));
     	
-    	
     	Page<PersonVO> persons = service.findAll(pageableRequest);
-
 
     	persons.forEach(p -> p.add(
 				linkTo(methodOn(PersonController.class).get(p.getKey())).withSelfRel()
