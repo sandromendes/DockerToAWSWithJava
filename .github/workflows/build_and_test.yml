@@ -33,9 +33,3 @@ jobs:
         cd app/
         mvn -B package --file pom.xml
         cd ..
-        
-    - name: Test with Maven
-      run: |
-        cd app/
-        mvn test
-        cd ..
